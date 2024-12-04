@@ -6,5 +6,5 @@ Flagstaff_Weather <- read_csv( 'data-raw/Pulliam_Airport_Weather_Station.csv' ) 
   select( DATE, PRCP, SNOW, TMAX, TMIN ) %>%
   filter( year(DATE) >= 2015 & year(DATE) <= 2019 )
 
-# Save the data frame to the data/ directory as Flagstaff_Weather.rda
-usethis::use_data(Flagstaff_Weather)
+# Save the data frame to the data/directory as Flagstaff_Weather.rda
+usethis::use_data( Flagstaff_Weather, overwrite=TRUE )
