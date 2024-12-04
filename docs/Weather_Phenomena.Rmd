@@ -1,0 +1,24 @@
+---
+title: "Weather Phenomena"
+author: "Your Name Here"
+date: "Today"
+output: html_document
+---
+
+This Rmarkdown file will make a graph of weather phenomena over time using data collected from the Flagstaff Pulliam Airport.
+
+```{r}
+data( "Flagstaff_Weather", package="Scherer445Package")
+
+colors <- c( "Max Temperature" = "red", "Min Temperature" = "blue", "Precipitation" = "green", "Snow" = "yellow" )
+
+ggplot( Flagstaff_Weather, aes(x=DATE) ) +
+  geom_line( aes(y=TMAX, color="Max Temperature") ) +
+  geom_line( aes(y=TMIN, color="Min Temperature") ) +
+  geom_line( aes(y=PRCP, color="Precipitation") ) +
+  geom_line( aes(y=SNOW, color="Snow") ) +
+  labs( title="Flagstaff weather phenomena over time") +
+  scale_color_manual( values=colors )
+```
+
+Here we see the cyclical variation in both low and high temperature data that corresponds to the seasons. Precipitation is also represented, and the drought from approximately 1996-2004 is visible.
